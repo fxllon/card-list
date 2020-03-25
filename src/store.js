@@ -150,7 +150,9 @@ export default new Vuex.Store({
       state.cards.forEach(card => {
         card.active = false
       })
-      state.currentIndex++
+      if (state.currentIndex < state.cards.length) {
+        state.currentIndex++
+      }
     },
     prevCard (state) {
       if (state.selected) {
@@ -159,7 +161,9 @@ export default new Vuex.Store({
       state.cards.forEach(card => {
         card.active = false
       })
-      state.currentIndex--
+      if (state.currentIndex > 0) {
+        state.currentIndex--
+      }
     },
     selectCard (state, selected) {
       state.unselect = null
