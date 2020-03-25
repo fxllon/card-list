@@ -13,11 +13,18 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
+  computed: {
+    ...mapState(['cards', 'currentIndex', 'selected'])
+  },
   data () {
     return {
       selected: false,
     }
+  },
+  methods: {
+    ...mapMutations(['prevCard', 'nextCard', 'selectCard'])
   },
   mounted () {
     let touch = {}
