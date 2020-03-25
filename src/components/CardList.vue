@@ -1,12 +1,16 @@
 <template>
   <div class="card-list" :class="{ 'card-list__selected': !!selected }">
-    <ul :style="{ width: `${1 * 100}%`}">
+    <ul :style="{ width: `${cards.length * 100}%`}">
       <li
-        v-for="(card, index) in 4"
-        :key="index"
-        :style="{ transform: `translate3d(-${0 * 100}%, 0, 0)` }"
+        v-for="card in cards"
+        :key="card.id"
+        :style="{ transform: `translate3d(-${currentIndex * 100}%, 0, 0)` }"
       >
-        {{ card }}
+        <div style="height: 100%" :style="{ backgroundImage: `url(${card.coverUrl})` }">
+          <div>
+            {{ card.title }}
+          </div>
+        </div>
       </li>
     </ul>
   </div>
@@ -20,7 +24,6 @@ export default {
   },
   data () {
     return {
-      selected: false,
     }
   },
   methods: {
@@ -40,9 +43,9 @@ export default {
         return
       }
       if (touch.endX < touch.startX) {
-        this.selected = true
+        this.nextCard()
       } else {
-        this.selected = false
+        this.prevCard()
       }
     })
   }
@@ -52,7 +55,7 @@ export default {
 <style lang="scss">
 .card-list {
   margin: 30px;
-  height: 300px;
+  height: 496px;
   border: 1px solid gray;
   transform: scaleX(1);
   transition: all 0.6s ease;
