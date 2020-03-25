@@ -2,6 +2,7 @@
   <div class="home">
     <app-bar title="写个标题" left="search" right="crosshairs" />
     <tab-list />
+    <card-list />
     <div>这是底部a</div>
   </div>
 </template>
@@ -9,11 +10,13 @@
 <script>
 import AppBar from '../components/AppBar.vue'
 import TabList from '../components/TabList.vue'
+import CardList from '../components/CardList.vue'
 export default {
   name: 'home',
   components: {
     AppBar,
-    TabList
+    TabList,
+    CardList
   }
 }
 </script>
