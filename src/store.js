@@ -150,7 +150,7 @@ export default new Vuex.Store({
       state.cards.forEach(card => {
         card.active = false
       })
-      if (state.currentIndex < state.cards.length) {
+      if (state.currentIndex < state.cards.length - 1 ) {
         state.currentIndex++
       }
     },
