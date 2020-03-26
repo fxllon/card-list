@@ -6,11 +6,9 @@
         :key="card.id"
         :style="{ transform: `translate3d(-${currentIndex * 100}%, 0, 0)` }"
       >
-        <div style="height: 100%" :style="{ backgroundImage: `url(${card.coverUrl})` }">
-          <div>
-            {{ card.title }}
-          </div>
-        </div>
+        <card
+          :card="card"
+          :selected="selected && selected.card === card" />
       </li>
     </ul>
   </div>
@@ -18,7 +16,11 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import Card from './Card.vue'
 export default {
+  components: {
+    Card
+  },
   computed: {
     ...mapState(['cards', 'currentIndex', 'selected'])
   },
