@@ -7,15 +7,18 @@
     }"
   >
     <card-front :card="card" @click.native="toggleCard({ card })" />
+    <card-back :card="card" />
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import CardFront from './CardFront.vue'
+import CardBack from './CardBack.vue'
 export default {
   components: {
     CardFront,
+    CardBack
   },
   props: {
     card: {
@@ -40,6 +43,10 @@ export default {
   visibility: hidden;
 }
 .card__active {
+  .card_back {
+    transform: scale(1);
+    opacity: 1;
+  }
   .card_front {
     transform: translate3d(0, -100px, 0);
   }
