@@ -6,11 +6,12 @@
       card__selected: selected
     }"
   >
-    <card-front :card="card" />
+    <card-front :card="card" @click.native="toggleCard({ card })" />
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import CardFront from './CardFront.vue'
 export default {
   components: {
@@ -25,7 +26,7 @@ export default {
     }
   },
   methods: {
-
+    ...mapMutations(['toggleCard']),
   }
 }
 </script>
@@ -37,5 +38,10 @@ export default {
 }
 .card__selected {
   visibility: hidden;
+}
+.card__active {
+  .card_front {
+    transform: translate3d(0, -100px, 0);
+  }
 }
 </style>
