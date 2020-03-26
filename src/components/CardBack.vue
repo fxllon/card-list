@@ -2,8 +2,8 @@
   <div class="card_back">
     <div class="card_map"></div>
     <div class="card_head">
-      <p class="card_address"></p>
-      <p class="card_address"></p>
+      <p class="card_address">{{ card.address }}</p>
+      <p class="card_address">{{ card.postcode }}</p>
       <div class="card_star">
         <i
           class="fa fa-star"
@@ -13,11 +13,18 @@
         />
       </div>
     </div>
+    <div class="card_body">
+      <abstract :posts="card.posts" />
+    </div>
   </div>
 </template>
 
 <script>
+import Abstract from './Abstract.vue'
 export default {
+  components: {
+    Abstract
+  },
   props: {
     card: {
       type: Object
@@ -39,7 +46,7 @@ export default {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   font-size: 12px;
-  // opacity: 0;
+  opacity: 0;
   transform: scale(0.8);
   transition: all 0.6s ease;
 }
@@ -47,7 +54,7 @@ export default {
   height: 100px;
   background-image: url(../assets/map.png);
   background-size: cover;
-  // opacity: 0;
+  opacity: 0;
   transform: translate3d(0, 0, 0);
 }
 .card_address {
