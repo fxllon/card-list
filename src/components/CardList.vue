@@ -8,7 +8,9 @@
       >
         <card
           :card="card"
-          :selected="selected && selected.card === card" />
+          :selected="selected && selected.card === card"
+          @select="selectCard"
+        />
       </li>
     </ul>
   </div>
@@ -23,10 +25,6 @@ export default {
   },
   computed: {
     ...mapState(['cards', 'currentIndex', 'selected'])
-  },
-  data () {
-    return {
-    }
   },
   methods: {
     ...mapMutations(['prevCard', 'nextCard', 'selectCard'])
