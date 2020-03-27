@@ -15,15 +15,18 @@
     </div>
     <div class="card_body">
       <abstract :posts="card.posts" />
+      <post-list :posts="card.posts" />
     </div>
   </div>
 </template>
 
 <script>
 import Abstract from './Abstract.vue'
+import PostList from './PostList.vue'
 export default {
   components: {
-    Abstract
+    Abstract,
+    PostList
   },
   props: {
     card: {
@@ -49,6 +52,11 @@ export default {
   opacity: 0;
   transform: scale(0.8);
   transition: all 0.6s ease;
+
+  .post-list {
+    transform: scale3d(1, 0, 1);
+    opacity: 0;
+  }
 }
 .card_map {
   height: 100px;
