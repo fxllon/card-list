@@ -3,6 +3,7 @@
     <app-bar title="写个标题" left="search" right="crosshairs" />
     <tab-list />
     <card-list />
+    <card-detail />
     <div>这是底部a</div>
   </div>
 </template>
@@ -11,12 +12,14 @@
 import AppBar from '../components/AppBar.vue'
 import TabList from '../components/TabList.vue'
 import CardList from '../components/CardList.vue'
+import CardDetail from '../components/CardDetail.vue'
 export default {
   name: 'home',
   components: {
     AppBar,
     TabList,
-    CardList
+    CardList,
+    CardDetail
   }
 }
 </script>
